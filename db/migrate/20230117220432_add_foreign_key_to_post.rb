@@ -1,5 +1,5 @@
 class AddForeignKeyToPost < ActiveRecord::Migration[7.0]
   def change
-    add_column :posts, :author_id, :integer
+    t.references :author, foreign_key: { to_table: 'users' }
   end
 end
