@@ -11,6 +11,10 @@ RSpec.describe User, type: :model do
         expect(subject).to_not be_valid
     end
 
+    it 'title should be John Doe' do
+        expect(subject.name).to eq('John Doe')
+    end
+
     it 'posts counter should be present' do
         subject.posts_counter = nil
         expect(subject).to_not be_valid
