@@ -3,8 +3,12 @@ class Post < ApplicationRecord
   has_many :comments, class_name: 'Comment', foreign_key: 'post_id'
   has_many :likes, class_name: 'Like', foreign_key: 'post_id'
 
-  def update_counter
-    author.update(posts_counter: author.posts.count)
+  after_save :update_post_counter
+
+  private
+
+  def update_post_counter
+    author.increment!(:posts_counter)
   end
 
   def recent_comments
