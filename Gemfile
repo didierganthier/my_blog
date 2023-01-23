@@ -74,3 +74,5 @@ end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rspec-rails', '~> 4.0.0'
+
+gem 'rails-controller-testing'
