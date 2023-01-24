@@ -1,1 +1,24 @@
-<h1>Specific Post</h1>
+<div class="bg-white rounded-lg shadow-lg">
+  <div class="p-4">
+    <h2 class="text-xl font-medium text-gray-900">
+        <%= @post.title %>
+    </h2>
+    <p class="text-sm text-gray-600">
+      <%= @post.created_at %>
+    </p>
+    <p class="text-base text-gray-800">
+      <%= @post.text %>
+    </p>
+  </div>
+  <div class="px-4 py-3 bg-gray-100">
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Author:</span> <%= @post.author.name %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Likes:</span> <%= @post.likes_counter %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Comments:</span> <%= @post.comments_counter %>
+    </p>
+  </div>
+</div>
