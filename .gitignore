@@ -31,3 +31,5 @@
 /config/master.key
 
 .history
+/app/assets/builds/*
+!/app/assets/builds/.keep
