@@ -21,4 +21,14 @@
       <span class="text-gray-800">Comments:</span> <%= @post.comments_counter %>
     </p>
   </div>
+  <% if @comments.empty? %>
+  <p>There are no comments for this post.</p>
+<% else %>
+  <% @comments.each do |comment| %>
+    <div class="bg-white rounded-lg p-4">
+      <p class="text-gray-700 font-medium"><%= comment.content %></p>
+      <p class="text-gray-500 font-medium">by <%= comment.author %></p>
+    </div>
+  <% end %>
+<% end %> 
 </div>
