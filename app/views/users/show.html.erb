@@ -2,15 +2,15 @@
 <div class="bg-white p-6 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
   <div class="flex items-center mb-6">
     <% if @user.photo? %>
-        <%= cl_image_tag @user.photo, class: "h-12 w-12 rounded-full object-cover" %>
+        <%= image_tag @user.photo, class: "h-48 w-48 rounded-full object-cover" %>
     <% else %>
         <%= image_tag "https://avatars.dicebear.com/api/adventurer/4.svg", class: "h-48 w-48 rounded-full object-cover" %>
     <% end %>
-    <div class="ml-4">
+    <div class="ml-4 flex flex-col gap-4">
       <h2 class="text-4xl font-medium text-gray-900 dark:text-white"><%= @user.name %></h2>
       <p class="text-2xl text-gray-600 dark:text-white"><%= @user.bio %></p>
-      <p class="text-2xl text-gray-600 dark:text-white">Joined <%= time_ago_in_words(@user.created_at) %> ago</p>
-      <p class="text-2xl text-gray-600 dark:text-white">Number of posts: <%= @user.posts_counter - 1 %></p>
+      <p class="text-lg text-gray-600 dark:text-white">Joined <%= time_ago_in_words(@user.created_at) %> ago</p>
+      <p class="text-lg text-gray-600 dark:text-white">Number of posts: <%= @user.posts_counter - 1 %></p>
     </div>
   </div>
 </div>
@@ -23,7 +23,7 @@
       <%= post.title %>
     </a>
     <p class="text-gray-600 dark:text-white">
-      lorem ipsum dolor sit amet
+      <%= post.text %>
     </p>
     <p class="text-gray-600 dark:text-white">
       <%= time_ago_in_words(post.created_at) %> ago

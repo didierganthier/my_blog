@@ -3,7 +3,7 @@
         <%= link_to user_path(user) do %>
           <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
               <% if user.photo? %>
-                  <%= cl_image_tag user.photo, class: "h-32 w-32 object-cover rounded-lg md:w-48 md:h-auto" %>
+                  <%= image_tag user.photo, class: "h-32 w-32 object-cover rounded-lg md:w-48 md:h-auto" %>
               <% else %>
                   <%= image_tag "https://avatars.dicebear.com/api/adventurer/4.svg", class: "h-10 w-10 object-cover rounded-lg md:w-48 md:h-auto" %>
               <% end %>
