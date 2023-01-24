@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-<div class="bg-white p-6 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+<div class="p-6 rounded-lg shadow-md bg-gradient-to-tr from-[#3FBFED] via-[#35A5E5] to-[#319AE0]">
   <div class="flex items-center mb-6">
     <% if @user.photo? %>
         <%= image_tag @user.photo, class: "h-48 w-48 rounded-full object-cover" %>
@@ -7,22 +7,22 @@
         <%= image_tag "https://avatars.dicebear.com/api/adventurer/4.svg", class: "h-48 w-48 rounded-full object-cover" %>
     <% end %>
     <div class="ml-4 flex flex-col gap-4">
-      <h2 class="text-4xl font-medium text-gray-900 dark:text-white"><%= @user.name %></h2>
-      <p class="text-2xl text-gray-600 dark:text-white"><%= @user.bio %></p>
-      <p class="text-lg text-gray-600 dark:text-white">Joined <%= time_ago_in_words(@user.created_at) %> ago</p>
-      <p class="text-lg text-gray-600 dark:text-white">Number of posts: <%= @user.posts_counter - 1 %></p>
+      <h2 class="text-4xl font-bold text-gray-900"><%= @user.name %></h2>
+      <p class="text-2xl text-gray-800"><%= @user.bio %></p>
+      <p class="text-lg text-gray-800">Joined <%= time_ago_in_words(@user.created_at) %> ago</p>
+      <p class="text-lg text-gray-800">Number of Posts: <%= @user.posts_counter %></p>
     </div>
   </div>
 </div>
-<h3 class="text-lg font-medium text-gray-800 mt-4">Recent Posts</h3>
+<h3 class="text-lg font-bold text-gray-800 mt-4">Recent Posts</h3>
 <div class="flex flex-col">
-<div class="bg-white p-6 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+<div class="p-6 rounded-lg shadow-md bg-[url('https://images.unsplash.com/photo-1601436155198-2ebfea8117b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')]">
 <% @user.posts.first(3).each do |post| %>
-  <div class="mb-4">
-    <a href="<%= user_post_path(@user, post) %>" class="text-lg font-medium text-blue-600 hover:underline">
+  <div class="mb-4 shadow-md p-4 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200">
+    <a href="<%= user_post_path(@user, post) %>" class="text-xl font-bold text-blue-600 hover:underline">
       <%= post.title %>
     </a>
-    <p class="text-gray-600 dark:text-white">
+    <p class="text-black text-xl dark:text-white my-2">
       <%= post.text %>
     </p>
     <p class="text-gray-600 dark:text-white">
@@ -37,8 +37,8 @@
 </div>
 </div>
   <%= link_to user_posts_path(@user) do %>
-    <div class="flex justify-center mt-4">
-      <button class="bg-blue-500 text-white px-4 py-2 rounded font-medium hover:bg-blue-600">See All Posts</button>
+    <div class="flex justify-center my-4">
+      <button class="bg-gradient-to-tr from-[#3FBFED] via-[#35A5E5] to-[#319AE0] text-white px-4 py-2 rounded font-medium hover:bg-blue-600">See All Posts</button>
     </div>
     <% end %>
 </div>
