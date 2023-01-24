@@ -2,7 +2,7 @@
 
 # 📗 Table of Contents
 
-- [� Table of Contents](#-table-of-contents)
+- [📗 Table of Contents](#-table-of-contents)
 - [📖 My Blog ](#-my-blog-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
@@ -19,7 +19,7 @@
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments \</a](#-acknowledgments-a)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
 # 📖 My Blog <a name="about-project"></a>
@@ -94,9 +94,9 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-```sh
-  cd my-project
-  gem install
+```
+  cd my_blog
+  bundle install
 ```
 
 ### Usage
@@ -104,7 +104,7 @@ Install this project with:
 To run the project, execute the following command:
 
 ```
-  rails server
+   ./bin/dev
 ```
 
 ### Run tests
@@ -155,7 +155,7 @@ If you like this project please give it a ⭐️!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse for giving me the opportunity to learn and grow as a developer.
 
