@@ -77,4 +77,4 @@ gem 'rspec-rails', '~> 4.0.0'
 
 gem 'rails-controller-testing'
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0'
