@@ -1,1 +1,21 @@
-<h1>Users</h1>
+<div class="flex flex-col gap-4">
+<% @users.each do |user| %>
+    <div class="user">
+        <%= link_to user_path(user) do %>
+          <div class="flex flex-col p-4 items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl bg-gradient-to-tr from-[#3FBFED] via-[#35A5E5] to-[#319AE0]">
+              <% if user.photo? %>
+                  <%= image_tag user.photo, class: "h-32 w-32 object-cover rounded-lg md:w-48 md:h-auto" %>
+              <% else %>
+                  <%= image_tag "https://avatars.dicebear.com/api/adventurer/4.svg", class: "h-10 w-10 object-cover rounded-lg md:w-48 md:h-auto" %>
+              <% end %>
+              <div class="flex flex-col justify-between p-4 leading-normal">
+                  <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white"><%= user.name %></h5>
+                  <p class="mb-3 text-xl font-normal text-gray-700">
+                      Number of posts: <%= user.posts_counter %>
+                  </p>
+              </div>
+          </div>
+        <% end %>
+    </div>
+<% end %>
+</div>

@@ -1,1 +1,34 @@
-<h1>Specific Post</h1>
+<div class="p-6 rounded-lg shadow-md bg-gradient-to-tr from-[#3FBFED] via-[#35A5E5] to-[#319AE0]">
+  <div class="p-4">
+    <h2 class="text-xl font-bold text-gray-900">
+        <%= @post.title %>
+    </h2>
+    <p class="text-base text-gray-800 my-4">
+      <%= @post.text %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <%= time_ago_in_words(@post.created_at) + " ago" %>
+    </p>
+  </div>
+  <div class="px-4 py-3 bg-gray-100 rounded-t-lg">
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Author:</span> <%= @post.author.name %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Likes:</span> <%= @post.likes_counter %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <span class="text-gray-800">Comments:</span> <%= @post.comments_counter %>
+    </p>
+  </div>
+  <% if @comments.empty? %>
+  <p>There are no comments for this post.</p>
+<% else %>
+  <% @comments.each do |comment| %>
+    <div class="bg-white rounded-b-lg p-4">
+      <p class="text-gray-700 font-medium"><%= comment.text %></p>
+      <p class="text-gray-500 font-medium">by <%= comment.author.name %></p>
+    </div>
+  <% end %>
+<% end %> 
+</div>
