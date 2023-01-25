@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-4">
-<% @users.each do |user| %>
+<% @users.reverse.each do |user| %>
     <div class="user">
         <%= link_to user_path(user) do %>
           <div class="flex flex-col p-4 items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl bg-gradient-to-tr from-[#3FBFED] via-[#35A5E5] to-[#319AE0]">

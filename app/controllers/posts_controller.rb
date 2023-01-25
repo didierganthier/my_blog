@@ -15,29 +15,16 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: params[:id]).order(created_at: :desc).limit(5)
   end
 
-  # def create
-  #   @post = Post.new(post_params)
-  #   @post.author_id = current_user.id
-  #   @post = current_user.posts.build(post_params)
-  #   @post.likes_counter = 0
-  #   @post.comments_counter = 0
-  #   if @post.save
-  #       flash[:notice] = "Post created successfully"
-  #       redirect_to user_posts_path(current_user)
-  #   else
-  #       flash[:alert] = "Post creation failed"
-  #       render :new
-  #   end
-  # end
-
   def create    
     @post = Post.new(post_params)    
     @post.author = current_user    
     @post.likes_counter = 0    
     @post.comments_counter = 0    
-    if @post.save      
+    if @post.save
+      flash[:notice] = "Post created successfully"      
       redirect_to user_posts_path(current_user)    
-    else      
+    else
+      flash[:alert] = "Post creation failed"      
       render :new, status: :unprocessable_entity    
     end  
   end
