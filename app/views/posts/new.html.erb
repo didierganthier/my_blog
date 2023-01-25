@@ -1,0 +1,15 @@
+<div class="bg-white p-6 rounded-lg">
+  <%= form_with(model: @post, url: user_posts_path(@current_user)) do |form| %>
+    <div class="mb-4">
+      <%= form.label :title, class: "block text-gray-700 font-medium mb-2" %>
+      <%= form.text_field :title, class: "w-full border border-gray-400 p-2 rounded-lg" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :body, class: "block text-gray-700 font-medium mb-2" %>
+      <%= form.text_area :body, class: "w-full h-32 border border-gray-400 p-2 rounded-lg" %>
+    </div>
+    <div class="text-center">
+      <%= form.submit "Create Post", class: "bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600" %>
+    </div>
+  <% end %>
+</div>
