@@ -10,7 +10,10 @@
       <%= time_ago_in_words(@post.created_at) + " ago" %>
     </p>
   </div>
-  <div class="px-4 py-3 bg-gray-100 rounded-t-lg">
+  <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |form| %>  
+  # <%= form.submit 'Like' %> 
+  <% end %>
+  <div class="px-4 py-3 bg-gray-100 rounded-lg my-4">
     <p class="text-sm text-gray-600">
       <span class="text-gray-800">Author:</span> <%= @post.author.name %>
     </p>
@@ -25,7 +28,7 @@
   <p>There are no comments for this post.</p>
 <% else %>
   <% @comments.each do |comment| %>
-    <div class="bg-white rounded-b-lg p-4">
+    <div class="bg-white rounded-lg p-4">
       <p class="text-gray-700 font-medium"><%= comment.text %></p>
       <p class="text-gray-500 font-medium">by <%= comment.author.name %></p>
     </div>
