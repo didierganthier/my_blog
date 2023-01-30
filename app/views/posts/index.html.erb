@@ -17,7 +17,7 @@
 <h3 class="text-lg font-bold text-gray-800 mt-4">Posts</h3>
 <div class="flex flex-col">
 <div class="bg-white p-6 rounded-lg shadow-md bg-[url('https://images.unsplash.com/photo-1601436155198-2ebfea8117b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')]">
-<% @user.posts.each do |post| %>
+<% @user.posts.includes([:comments]).each do |post| %>
   <div class="mb-4 shadow-md p-4 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200">
     <a href="<%= user_post_path(@user, post) %>" class="text-lg font-medium text-blue-600 hover:underline">
       <%= post.title %>
@@ -35,7 +35,7 @@
       <% if post.comments.empty? %>
   <p class="my-8">There are no comments for this post.</p>
 <% else %>
-  <% post.comments.each do |comment| %>
+  <% post.comments.includes([:author]).each do |comment| %>
     <div class="bg-white rounded-lg p-4 shadow-md">
       <p class="text-gray-700 font-medium"><%= comment.text %></p>
       <p class="text-gray-500 font-medium">by <%= comment.author.name %></p>
