@@ -3,7 +3,8 @@ require '../rails_helper'
 RSpec.describe 'Users', type: :system, js: true do
   describe 'first page' do
     before(:example) do
-      @user = User.create(name: 'Didier', photo: 'https://didierganthier-homepage.vercel.app/images/profile.jpg', bio: 'Full-Stack Dev', posts_counter: 0)
+      @user = User.create(name: 'Didier', photo: 'https://didierganthier-homepage.vercel.app/images/profile.jpg',
+                          bio: 'Full-Stack Dev', posts_counter: 0)
       visit users_path
     end
 
@@ -27,10 +28,14 @@ RSpec.describe 'Users', type: :system, js: true do
 
   describe 'show page' do
     before(:example) do
-      @user = User.create(name: 'Didier', photo: 'https://didierganthier-homepage.vercel.app/images/profile.jpg', bio: 'Awesome dev.', posts_counter: 0)
-      @firstPost = Post.create(author: @user, title: 'Hello World', text: 'End of the world', likes_counter: 0, comments_counter: 0)
-      @secondPost = Post.create(author: @user, title: 'Hello Moon', text: 'To the moon', likes_counter: 0, comments_counter: 0)
-      @thirdPost = Post.create(author: @user, title: 'Wassup Jupiter', text: 'This is the biggest planet', likes_counter: 0, comments_counter: 0)
+      @user = User.create(name: 'Didier', photo: 'https://didierganthier-homepage.vercel.app/images/profile.jpg',
+                          bio: 'Awesome dev.', posts_counter: 0)
+      @first_post = Post.create(author: @user, title: 'Hello World', text: 'End of the world', likes_counter: 0,
+                                comments_counter: 0)
+      @second_post = Post.create(author: @user, title: 'Hello Moon', text: 'To the moon', likes_counter: 0,
+                                 comments_counter: 0)
+      @third_post = Post.create(author: @user, title: 'Wassup Jupiter', text: 'This is the biggest planet',
+                                likes_counter: 0, comments_counter: 0)
       visit user_path(@user)
     end
 
@@ -51,14 +56,14 @@ RSpec.describe 'Users', type: :system, js: true do
     end
 
     it "renders the user's last 3 posts" do
-      expect(page).to have_content(@firstPost.title)
-      expect(page).to have_content(@secondPost.title)
-      expect(page).to have_content(@thirdPost.title)
+      expect(page).to have_content(@first_post.title)
+      expect(page).to have_content(@second_post.title)
+      expect(page).to have_content(@third_post.title)
     end
 
     it "redirects to user's postss page" do
-      click_link @firstPost.title
-      expect(page).to have_current_path(user_post_path(@user, @firstPost))
+      click_link @first_post.title
+      expect(page).to have_current_path(user_post_path(@user, @first_post))
     end
   end
 end
