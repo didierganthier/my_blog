@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
+
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -15,10 +30,17 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
 
-
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+
+  config.parent_controller = 'TurboController'
+
+  # ==> Warden configuration
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
+
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -126,7 +148,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'df8d8849fb5c61d81b41dc9a8730b93be96d8d7e9eac42aa6c319bfba4b02d45b8a2f335634c6b0b6910c3253375105c0ec9ba00e44c6c1209c7107d1f662f4c'
+  # config.pepper = '93e1939405346b021a0bc17c9f67130b7390a02e2f8744b64dc8651345df75013593a2e625cf89ab4ae08e311567c3140d7916db76bdb069b5a89184fd257d4a'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
