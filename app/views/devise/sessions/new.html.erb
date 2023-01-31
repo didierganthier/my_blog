@@ -10,17 +10,7 @@
     <%= f.password_field :password, class: "w-full p-2 border border-gray-400 rounded", autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="my-4">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
   <div class="actions">
     <%= f.submit "Sign in", class: "bg-blue-400 text-white py-2 px-4 hover:bg-blue-600 rounded cursor-pointer" %>
-  </div>
-  <div class="py-4">
-    <%= render "devise/shared/links" %>
   </div>
 <% end %>
