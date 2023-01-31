@@ -1,7 +1,6 @@
-<h2 class="text-lg font-semibold">Sign up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
-
+  <h2 class="text-lg font-semibold">Sign up</h2>
   <div class="my-4">
     <%= f.label :name, class: "block text-sm font-medium mb-2" %>
     <%= f.text_field :name, class: "w-full p-2 border border-gray-400 rounded" %>
@@ -22,7 +21,7 @@
     <%= f.password_field :password_confirmation, class: "w-full p-2 border border-gray-400 rounded", autocomplete: "new-password" %>
   </div>
   <div class="my-4">
-    <%= f.submit "Sign up", class: "bg-blue-500 text-white py-2 px-4 hover:bg-blue-600 rounded" %>
+    <%= f.submit "Sign up", class: "bg-blue-400 text-white py-2 px-4 hover:bg-blue-600 rounded cursor-pointer" %>
   </div>
+  <%= render "devise/shared/links" %>
 <% end %>
-<%= render "devise/shared/links" %>
