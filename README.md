@@ -131,6 +131,12 @@ You can deploy this project using:
 - Twitter: [@didierganthier_](https://twitter.com/didierganthier_)
 - LinkedIn: [Didier Peran Ganthier](https://linkedin.com/in/didierganthier)
 
+👤 **Mauricio Mendoza**
+
+- GitHub: [@rbreva](https://github.com/rbreva)
+- Twitter: [@rbreva75](https://twitter.com/rbreva75)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/r-mauricio-mendoza-huerta/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
