@@ -34,20 +34,22 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @user = @post.author
-    # check if there are any comments or likes associated with the post
-    if @post.comments_counter.positive? || @post.likes_counter.positive?
-      @post.comments.each(&:destroy) if @post.comments_counter.positive?
-      @post.likes.each(&:destroy) if @post.likes_counter.positive?
-    end
-    @post.destroy
+    delete_post_and_its_related_objects(@post)
     @user.posts_counter -= 1
     flash[:notice] = 'Post deleted successfully'
-    # delete all comments and likes associated with the post
 
     redirect_to user_posts_path(@user) if @user.save
   end
 
   private
+
+  def delete_post_and_its_related_objects(post)
+    if post.comments_counter.positive? || post.likes_counter.positive?
+      post.comments.each(&:destroy) if post.comments_counter.positive?
+      post.likes.each(&:destroy) if post.likes_counter.positive?
+    end
+    post.destroy
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)
