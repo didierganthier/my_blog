@@ -19,14 +19,12 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment.destroy
-      @comment.author.comments_counter -= 1
-      flash[:notice] = 'Comment deleted successfully'
-      redirect_to user_post_path(current_user, @comment.post)
-    else
-      flash[:alert] = 'Comment deletion failed'
-      render :show, status: :unprocessable_entity
-    end
+    @post = @comment.post
+    @user = @post.author
+    @comment.destroy
+    @post.comments_counter -= 1
+
+    redirect_to user_post_path(@user, @post) if @post.save
   end
 
   def new

@@ -50,8 +50,8 @@ class PostsController < ApplicationController
     @post.destroy
     @user.posts_counter -= 1
     flash[:notice] = 'Post deleted successfully'
-    #delete all comments and likes associated with the post
-    
+    # delete all comments and likes associated with the post
+
     redirect_to user_posts_path(@user) if @user.save
   end
 
