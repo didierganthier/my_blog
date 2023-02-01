@@ -58,6 +58,7 @@
 - **Create post**
 - **Delete Post**
 - **Edit Post**
+- **Sing in**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
