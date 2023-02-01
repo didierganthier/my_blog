@@ -1,0 +1,16 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<h2 class="text-lg font-semibold">Log in</h2>
+  <div class="my-4">
+    <%= f.label :email, class: "block text-sm font-medium mb-2" %>
+    <%= f.email_field :email, class: "w-full p-2 border border-gray-400 rounded", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="my-4">
+    <%= f.label :password, class: "block text-sm font-medium" %><br />
+    <%= f.password_field :password, class: "w-full p-2 border border-gray-400 rounded", autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign in", class: "bg-blue-400 text-white py-2 px-4 hover:bg-blue-600 rounded cursor-pointer" %>
+  </div>
+<% end %>

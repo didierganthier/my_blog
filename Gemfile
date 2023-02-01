@@ -80,3 +80,5 @@ gem 'rails-controller-testing'
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'bullet', '~> 7.0', '>= 7.0.7'
+
+gem 'devise'

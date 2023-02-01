@@ -1,6 +1,6 @@
 class AddForeignKeyToComment < ActiveRecord::Migration[7.0]
   def change
-    t.references :author, foreign_key: { to_table: 'users' }
-    t.references :post, foreign_key: true
+    add_reference :comments, :author, foreign_key: { to_table: 'users' }
+    add_reference :comments, :post, foreign_key: true
   end
 end
