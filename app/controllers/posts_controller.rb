@@ -12,9 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = @user.posts.includes([:author]).find(params[:id])
-    @comments = Comment.includes([:author]).where(post_id: params[:id]).order(created_at: :desc).limit(5)
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -35,17 +33,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.author
     # check if there are any comments or likes associated with the post
-    if @post.comments_counter > 0 || @post.likes_counter > 0
-      if @post.comments_counter > 0
-        @post.comments.each do |comment|
-          comment.destroy
-        end
-      end
-      if @post.likes_counter > 0
-        @post.likes.each do |like|
-          like.destroy
-        end
-      end
+    if @post.comments_counter.positive? || @post.likes_counter.positive?
+      @post.comments.each(&:destroy) if @post.comments_counter.positive?
+      @post.likes.each(&:destroy) if @post.likes_counter.positive?
     end
     @post.destroy
     @user.posts_counter -= 1
