@@ -84,3 +84,5 @@ gem 'bullet', '~> 7.0', '>= 7.0.7'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'jwt'
